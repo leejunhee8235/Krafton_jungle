@@ -75,7 +75,7 @@ def lcm(a, b):
     """
     # TODO: LCM 계산
     g = gcd(a,b)
-    return (a,b) // g
+    return (a*b) // g
 
 def extended_gcd(a, b):
     """
@@ -105,7 +105,7 @@ def is_prime(n):
     소수 판별
     """
 
-    # 1️⃣ 2보다 작은 수는 소수가 아님
+    # 1️⃣ 2보다 작은 수는 소수 아님
     if n < 2:
         return False
 
@@ -113,7 +113,7 @@ def is_prime(n):
     if n == 2:
         return True
 
-    # 3️⃣ 짝수는 소수가 아님
+    # 3️⃣ 짝수는 소수 아님
     if n % 2 == 0:
         return False
 
@@ -123,7 +123,6 @@ def is_prime(n):
         if n % i == 0:
             return False
 
-    # 5️⃣ 나눠지는 수가 없으면 소수
     return True
 
 # 테스트 케이스
