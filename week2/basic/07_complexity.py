@@ -68,6 +68,8 @@ def find_duplicates_sorting(nums):
             if nums[i] not in duplicates:
                 duplicates.append(nums[i])
 
+                
+
     
     return duplicates
 
