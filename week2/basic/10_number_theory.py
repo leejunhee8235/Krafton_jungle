@@ -105,19 +105,19 @@ def is_prime(n):
     소수 판별
     """
 
-    # 1️⃣ 2보다 작은 수는 소수 아님
+    
     if n < 2:
         return False
 
-    # 2️⃣ 2는 소수
+    
     if n == 2:
         return True
 
-    # 3️⃣ 짝수는 소수 아님
+   
     if n % 2 == 0:
         return False
 
-    # 4️⃣ 3부터 sqrt(n)까지 홀수만 검사
+    
     for i in range(3, int(sqrt(n)) + 1, 2):
 
         if n % i == 0:
