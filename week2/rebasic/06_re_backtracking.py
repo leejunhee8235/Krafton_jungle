@@ -44,17 +44,23 @@ def combinations(n, k):
             current_combination: 현재까지 선택한 숫자들
         """
         # TODO: base case - k개를 모두 선택했으면 결과에 추가
-        
+        result = []
+        if(len(current_combination)) == k:
+            result.append(current_combination[:])
         
         
         
         # TODO: start부터 n까지 숫자를 하나씩 시도
         ## TODO: 백트랙킹 3단계 구현
+        for i in range(start,n+1):
         ## 1. 선택(Choose)
+            current_combination.append(i)
         ## 2. 탐색(Explore)
+            backtrack(i+1,current_combination)
         ## 3. 취소(Unchoose)
-        
-
+            current_combination.pop()
+    backtrack(1,[])
+    return result
 def combinations_itertools_compare(n, k):
     """
     itertools를 사용한 조합 생성 (비교용)

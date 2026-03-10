@@ -46,7 +46,7 @@ def combinations(n, k):
         # TODO: base case - k개를 모두 선택했으면 결과에 추가
         if len(current_combination) == k:
             result.append(current_combination[:])
-            return
+            
         
         
         
