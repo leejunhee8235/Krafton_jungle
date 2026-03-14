@@ -29,7 +29,7 @@ def binary_search(arr, target):
     Args:
         arr: 정렬된 배열
         target: 찾을 값
-    
+        
     Returns:
         target의 인덱스 (없으면 -1)
     """
@@ -42,7 +42,32 @@ def binary_search(arr, target):
     ## 같으면 mid 반환
     ## target이 더 크면 left = mid + 1
     ## target이 더 작으면 right = mid - 1
-    pass
+
+    # while left <= right:
+    #     mid = 
+    #     if arr[mid] == target:
+    #         return mid
+    #     if target > arr[mid]:
+    #         left = mid+1
+    #     if target < arr[mid]:
+    #         right = mid -1
+        
+    #     break
+
+    
+    # return target
+
+
+    while left <= right:
+        mid = (left + right) // 2
+        
+        if arr[mid] == target:
+            return mid
+        elif target > arr[mid]:
+            left = mid + 1
+        else:
+           
+            right = mid - 1
     
     return -1
 

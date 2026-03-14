@@ -14,7 +14,7 @@
 
 예제:
 입력: "(())"
-출력: True
+출력: True 
 
 입력: "(()"
 출력: False
@@ -37,15 +37,23 @@ def is_valid_parentheses(s):
     """
     stack = []
     
-    # TODO: 문자열의 각 문자를 순회
-    ## : 여는 괄호 '('면 스택에 추가
-    ## : 닫는 괄호 ')'면
-    ## 스택이 비어있으면 False 반환
-    ## 아니면 스택에서 pop
-    pass
+     # 문자열의 각 문자를 순회
+    for ch in s:
+        # 여는 괄호 '('면 스택에 추가
+        if ch == '(':
+            stack.append(ch)
+        
+        # 닫는 괄호 ')'면
+        elif ch == ')':
+            # 스택이 비어있으면 짝이 없으므로 False
+            if not stack:
+                return False
+            
+            # 아니면 스택에서 pop
+            stack.pop()
     
-    # TODO: 반복이 끝나면 스택이 비어있는지 확인
-    pass
+    # 반복이 끝나면 스택이 비어있는지 확인
+    return len(stack) == 0
 
 # 테스트 케이스
 if __name__ == "__main__":

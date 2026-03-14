@@ -4,13 +4,13 @@
 문제 설명:
 - 큐(Queue)를 사용하여 프린터 작업을 순서대로 처리합니다.
 - FIFO (First In First Out) 구조를 활용합니다.
-
+ 
 입력:
 - jobs: 인쇄 작업 리스트 (예: ["문서A", "문서B", "문서C"])
 
 출력:
 - 작업이 처리되는 순서
-
+    
 예제:
 입력: ["문서A", "문서B", "문서C"]
 출력:
@@ -42,9 +42,14 @@ def process_print_queue(jobs):
     processed = []
     
     # TODO: 큐가 비어있지 않은 동안 반복
-    ## 큐에서 작업 꺼내기
-    ## 작업 처리 (출력 및 리스트에 추가)
-    pass
+  
+    while queue:
+        # 큐에서 작업 꺼내기
+        job = queue.popleft()
+        
+        # 작업 처리 (출력 및 리스트에 추가)
+        print(f"처리: {job}")
+        processed.append(job)
     
     return processed
 
