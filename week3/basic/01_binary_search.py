@@ -56,7 +56,7 @@ def binary_search(arr, target):
 
     
     # return target
-
+    
 
     while left <= right:
         mid = (left + right) // 2
