@@ -22,7 +22,7 @@
 1 → [0, 2]
 2 → [0, 1, 3]
 3 → [2]
-
+ 
 힌트:
 - 딕셔너리 사용: {정점: [연결된 정점들]}
 - 무방향 그래프는 양방향 추가
@@ -40,14 +40,25 @@ def create_graph(vertices, edges, directed=False):
     Returns:
         그래프 딕셔너리
     """
-    # TODO: 빈 그래프 초기화
-    pass
+    # TODO: 빈 그래프 초기화 
+    # 정점 번호를 key로 만들고, 각 정점의 연결 목록은 빈 리스트로 시작
+    graph = {}
+    for i in range(vertices):
+        graph[i]= []
+    
+    
     
     # TODO: 간선 추가
     ## 간선 추가 (u에서 v로)
     ## 무방향 그래프면 반대 방향도 추가
-    pass
-    
+    # edges에서 (u, v)를 하나씩 꺼냄
+    for u, v in edges:
+        # u 정점의 연결 목록에 v 추가
+        graph[u].append(v)
+        # 무방향 그래프라면 반대 방향도 추가
+        if not directed:
+            graph[v].append(u)
+     # 3. 완성된 그래프 반환
     return graph
 
 # 테스트 케이스
