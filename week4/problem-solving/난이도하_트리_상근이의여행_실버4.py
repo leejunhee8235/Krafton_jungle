@@ -25,3 +25,17 @@
 # 상근이가 모든 국가를 여행하기 위해 타야 하는 비행기 종류의 최소 개수를 출력한다.
 
 # N 국가의 수 M 비행기의 종류 a,b 나라주소
+
+import sys 
+input = sys.stdin.readline
+
+TEST = int(input())
+
+for _ in range(TEST):
+    N,M = map(int,input().split()) #국가수 비행기 종류수
+
+    # 비행기 정보는 입력만 받고 실제로 사용하지 않아도된다
+    for _ in range(M):
+        a,b = map(int, input().split())
+
+    print(N-1)
