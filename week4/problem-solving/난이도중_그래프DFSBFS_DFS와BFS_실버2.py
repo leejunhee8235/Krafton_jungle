@@ -21,6 +21,7 @@
 #DFS 1 - 2 - 4 - 3 ,BFS 1 - 2 - 3 - 4
 
 import sys
+from collections import deque
 input = sys.stdin.readline
 # dfs 구현
 
@@ -37,17 +38,75 @@ for i in range(1, N+1):
 
 visited = [False]*(N+1)
 
-
-result = []
+dfs_result = []
 
 def dfs(v):
     visited[v] = True
-    result.append(v)
+    dfs_result.append(v)
     for next in graph[v]:
         if not visited[next]:
             dfs(next)
 
 dfs(V)
-print(*result)
+
 
 # bfs 구현
+bfs_result = []
+bfs_visited = [False]*(N+1)
+
+def bfs(start):
+    queue = deque()
+
+    # 큐에 시작 정점을 넣고 방문처리하기
+    queue.append(start)
+    bfs_visited[start] = True
+
+
+
+
+    # 큐가 빌때까지
+    while queue:
+        v = queue.popleft()
+
+        bfs_result.append(v)
+
+        for bfs_next in graph[v]:
+
+            if not bfs_visited[bfs_next]:
+                bfs_visited[bfs_next] = True
+                queue.append(bfs_next)
+bfs(V)
+
+
+# bfs_result = []
+# bfs_visited = [False] * (N + 1)
+
+# def bfs(start):
+#     # 큐 생성
+#     queue = deque()
+    
+#     # 시작 정점을 큐에 넣고 방문 처리
+#     queue.append(start)
+#     bfs_visited[start] = True
+    
+#     # 큐가 빌 때까지 반복
+#     while queue:
+#         # 큐의 맨 앞 정점을 꺼냄
+#         v = queue.popleft()
+        
+#         # 꺼낸 정점을 방문 순서에 저장
+#         bfs_result.append(v)
+        
+#         # 현재 정점과 연결된 정점들을 확인
+#         for nxt in graph[v]:
+#             # 아직 방문하지 않은 정점이면
+#             if not bfs_visited[nxt]:
+#                 # 방문 처리하고 큐에 넣음
+#                 bfs_visited[nxt] = True
+#                 queue.append(nxt)
+
+# # BFS 시작
+# bfs(V)
+
+print(*dfs_result)
+print(*bfs_result)
