@@ -17,3 +17,45 @@
 
 # 출력
 # 첫 번째 줄에 지원이가 만들 수 있는 길이가 N인 모든 2진 수열의 개수를 15746으로 나눈 나머지를 출력한다.
+
+# 내가 이해한 문제 접근
+# 00?? -> 0011, 0000
+# 0??0 -> 0110
+# ?00? -> 1001
+# ??00 -> 1100, 0000
+
+# #상향식 (바텀업)
+# def tail(N = int(input())):
+#     if N == 1:
+#         return 1
+#     if N == 2:
+#         return 2
+    
+#     dp = [0]*(N+1)
+#     dp[1] = 1
+#     dp[2] = 2
+
+#     for i in range(3, N+1):
+#         dp[i] = (dp[i-1]+dp[i-2])%15746
+    
+
+#     return dp[N]
+# print(tail())
+
+#하향식 (탑다운)
+
+def topdown(N = int(input()), dp  = None):
+
+    if dp == None:
+        dp = {}
+    if N == 1:
+        return 1
+    if N == 2:
+        return 2
+    if N in dp:
+        return dp[N]
+    
+    dp[N] = topdown(N-1, dp)+ topdown(N-2, dp)%15746
+
+    return dp[N]
+print(topdown())
